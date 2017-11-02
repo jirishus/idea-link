@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+ <meta charset="utf-8"> 
+ <title>Idea Link</title>     
+ <!-- Mobile-friendly viewport -->
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- Style sheet link -->
+ <link href="stylesheets/screen.css" rel="stylesheet" media="all">
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">    
+</head>
+<body>
+
+<div class="container">
+
+  <header class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-6">
+      <a href="#">Idea Draft</a>
+    </div>
+
+    <!-- <div class="col-md-6">
+      <p>Signin</p>
+    </div> -->
+  </div>
+  </header>
+
+  <section class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <form name="idea-form">
+      <legend><h1>Tell Us About Your Business Idea</h1></legend>
+        <div class="row">
+          <div class="col-md-6 question-field">
+            <label for="idea-sentence">1. Describe your business idea in a sentence</label>
+            <input id="idea-sentence" type="text" class="form-control" placeholder="e.g. An app to connect musicians" required>
+          </div>
+          <div class="col-md-6 question-field">
+            <label for="idea-type">2. What type of business is this?</label>
+            <input type="text" class="form-control" id="idea-type" placeholder="e.g. service, social-network, business-2-business">
+          </div>
+         </div>
+
+         <div class="row">
+          <div class="col-md-6 question-field">
+            <label>3. Which industry? </label>
+            <select class="custom-select d-block my-3 form-control">
+              <option value="">Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          
+         </div>
+
+         <button class="btn btn-primary" type="submit">Submit Form</button>
+      </form>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  var ideaForm = document.forms['idea-form'];
+
+  ideaForm.onsubmit = function(evt) {
+    evt.preventDefault();
+
+    ideaForm.reset();
+    console.log('form sub')
+  }
+</script>
+</body>
+</html>

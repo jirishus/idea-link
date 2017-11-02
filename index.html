@@ -59,17 +59,50 @@
     </div>
   </section>
 
+  <section class="row">
+    <div class="col-md-8 col-md-offset-2">
+     <aside class="results" id="results">
+       <h1>Your Results</h1>
+     </aside>
+    </div>
+  </section>
+
 </div>
 
 <script>
+
   var ideaForm = document.forms['idea-form'];
 
   ideaForm.onsubmit = function(evt) {
     evt.preventDefault();
-
     ideaForm.reset();
-    console.log('form sub')
+
+    var url = 'https://jsonplaceholder.typicode.com/posts';    
+    makeCall(url);
   }
+
+  function makeCall(url) {
+    var results = document.getElementById('results');
+    var req = new XMLHttpRequest();
+    
+    req.onreadystatechange = function() {
+      if (req.readyState === 4) {
+        if (req.status === 200) {
+          var parsedJson = JSON.parse(req.responseText);          
+          
+          for (var i=0;i<parsedJson.length;i++) {
+            results.innerHTML += parsedJson[i].id;
+            results.innerHTML += parsedJson[i].title  + '<br />';
+          }
+
+        }
+      }
+    };
+
+    req.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+    req.send();
+  }
+
 </script>
 </body>
 </html>

@@ -46,8 +46,8 @@ legend {
 
 form[name="idea-form"] {
  background: $white;
- margin-top: 2em;
- padding: 1em 0;
+ margin: 2em 0 0 0;
+ padding: 2em;
  legend {
     text-align: center;
  }
@@ -58,6 +58,13 @@ form[name="idea-form"] {
     padding: 1em 0 1em 0;
  }
 }
+
+.results {
+ background: $white;
+ margin: 2em 0 0 0;
+ padding: 2em;
+}
+
 
 .container2 {
  position: relative;

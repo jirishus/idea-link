@@ -107,8 +107,8 @@ legend {
 
 form[name="idea-form"] {
   background: #fff;
-  margin-top: 2em;
-  padding: 1em 0;
+  margin: 2em 0 0 0;
+  padding: 2em;
 }
 form[name="idea-form"] legend {
   text-align: center;
@@ -118,6 +118,12 @@ form[name="idea-form"] .btn-primary {
 }
 form[name="idea-form"] label {
   padding: 1em 0 1em 0;
+}
+
+.results {
+  background: #fff;
+  margin: 2em 0 0 0;
+  padding: 2em;
 }
 
 .container2 {

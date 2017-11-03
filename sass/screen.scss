@@ -29,6 +29,7 @@ h6 { font-size: .75em; }
 
 body {
  background: linear-gradient(to right, $lite-purple, $purple);
+ font-family: sans-serif;
 }
 
 header {
@@ -47,7 +48,7 @@ legend {
 form[name="idea-form"] {
  background: $white;
  margin-top: 2em;
- padding: 1em 0;
+ padding: 1em;
  legend {
     text-align: center;
  }

@@ -90,6 +90,7 @@ h6 {
 
 body {
   background: linear-gradient(to right, #999ede, #5356ad);
+  font-family: sans-serif;
 }
 
 header {
@@ -108,7 +109,7 @@ legend {
 form[name="idea-form"] {
   background: #fff;
   margin-top: 2em;
-  padding: 1em 0;
+  padding: 1em;
 }
 form[name="idea-form"] legend {
   text-align: center;

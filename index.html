@@ -75,9 +75,11 @@
 
   ideaForm.onsubmit = function(evt) {
     evt.preventDefault();
-    ideaForm.reset();
+    // ideaForm.reset();
 
-    var url = 'https://jsonplaceholder.typicode.com/posts';    
+    var keywords = document.getElementById('idea-sentence');
+
+    var url = '/api/point1/' + '?keywords=' + keywords;    
     makeCall(url);
   }
 
@@ -90,16 +92,13 @@
         if (req.status === 200) {
           var parsedJson = JSON.parse(req.responseText);          
           
-          for (var i=0;i<parsedJson.length;i++) {
-            results.innerHTML += parsedJson[i].id;
-            results.innerHTML += parsedJson[i].title  + '<br />';
-          }
+          console.log(parsedJson);
 
         }
       }
     };
 
-    req.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+    req.open('GET', url);
     req.send();
   }
 

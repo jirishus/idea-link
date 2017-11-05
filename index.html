@@ -105,9 +105,10 @@
       if (req.readyState === 4) {
         if (req.status === 200) {  
 
-          setTimeout(function() {
-
           loader.style.display = 'block';
+
+          setTimeout(function() {
+          loader.style.display = 'none';
           var userScore = JSON.parse(req.responseText);
           console.log(userScore);
           results.innerHTML = '<p>Your Score : ' + userScore.totalNumRecords + '</p>'

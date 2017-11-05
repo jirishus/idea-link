@@ -96,13 +96,15 @@
     var keywords = document.getElementById('idea-sentence').value;
     var url = '/api/point1/' + '?keywords=' + keywords;    
     
-    makeCall(url);
+    makeCall(url, function(payload) {
+      console.log(payload);
+    });
+
   }
 
-  function makeCall(url) {
+  function makeCall(url, callback) {
     var req = new XMLHttpRequest();
-    var scores = [];
-
+    
     loader.style.display = 'block';
   
     req.onreadystatechange = function() {
@@ -112,12 +114,11 @@
           setTimeout(function() {
           loader.style.display = 'none';
           var userScore = JSON.parse(req.responseText);
-          scores.push(userScore);
+          callback(userScore);
+
           results.style.display = 'block';
           results.innerHTML = '<p>Your Score : ' + userScore.totalNumRecords + '</p>'
-
-          console.log(scores);
-
+          
           }, 0);
           
 

@@ -72,9 +72,10 @@
 
   <section class="row">
     <div class="col-md-8 col-md-offset-2">
-     <aside class="results" id="results">
-       <h1>Your Results</h1>
+
+     <aside class="results" id="results">       
      </aside>
+
     </div>
   </section>
 
@@ -85,6 +86,7 @@
   var ideaForm = document.forms['idea-form'];
   var loader = document.getElementById('loader');
   var results = document.getElementById('results');
+  var scores = [];
 
   results.style.display = 'none';
   loader.style.display = 'none';
@@ -97,7 +99,7 @@
     var url = '/api/point1/' + '?keywords=' + keywords;    
     
     makeCall(url, function(payload) {
-      console.log(payload);
+      scores.push(payload);
     });
 
   }
@@ -116,6 +118,8 @@
           var userScore = JSON.parse(req.responseText);
           callback(userScore);
 
+          console.log(scores);
+          
           results.style.display = 'block';
           results.innerHTML = '<p>Your Score : ' + userScore.totalNumRecords + '</p>'
           

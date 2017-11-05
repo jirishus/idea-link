@@ -98,6 +98,9 @@
   }
 
   function makeCall(url) {
+
+    loader.style.display = 'block';
+
     var results = document.getElementById('results');
     var req = new XMLHttpRequest();
     
@@ -105,7 +108,7 @@
       if (req.readyState === 4) {
         if (req.status === 200) {  
 
-          loader.style.display = 'block';
+
 
           setTimeout(function() {
           loader.style.display = 'none';

@@ -99,7 +99,9 @@
     var url = '/api/point1/' + '?keywords=' + keywords;    
     
     makeCall(url, function(payload) {
-      scores.push(payload);
+      scores.push(
+        '<p>' + payload.totalNumRecords + '</p>';
+      );
     });
 
   }
@@ -117,11 +119,9 @@
           loader.style.display = 'none';
           var userScore = JSON.parse(req.responseText);
           callback(userScore);
-
-          console.log(scores);
-          
+              
           results.style.display = 'block';
-          results.innerHTML = '<p>Your Score : ' + userScore.totalNumRecords + '</p>'
+          results.innerHTML = '<p>Your Score : ' + userScore.totalNumRecords + '</p>' + '<br />' + scores.join('');
           
           }, 0);
           

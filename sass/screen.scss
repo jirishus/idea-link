@@ -66,6 +66,23 @@ form[name="idea-form"] {
  padding: 2em;
 }
 
+.loader {
+ background: rgba(0,0,0,0.5); 
+ position: absolute;
+ height: 100%;
+ width: 100%;
+ top: 0;
+ left: 0;
+ z-index: 1;
+ aside {
+    position: absolute;
+    top: 40%;
+    left: 44%;
+    i {
+     font-size: 7em;
+    }
+ }
+}
 
 .container2 {
  position: relative;

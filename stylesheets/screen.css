@@ -127,6 +127,24 @@ form[name="idea-form"] label {
   padding: 2em;
 }
 
+.loader {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.loader aside {
+  position: absolute;
+  top: 40%;
+  left: 44%;
+}
+.loader aside i {
+  font-size: 7em;
+}
+
 .container2 {
   position: relative;
   width: 600px;

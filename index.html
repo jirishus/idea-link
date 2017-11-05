@@ -12,6 +12,16 @@
 </head>
 <body>
 
+
+<div class="loader" id="loader">
+
+ <aside>
+   <i class="fa fa-circle-o-notch fa-spin fa-4x fa-fw"></i>
+   <span class="sr-only">Loading...</span>
+ </aside>
+
+</div>
+
 <div class="container">
 
   <header class="row">
@@ -55,6 +65,7 @@
          </div>
 
          <button class="btn btn-primary" type="submit">Submit Form</button>
+      
       </form>
     </div>
   </section>
@@ -72,14 +83,17 @@
 <script>
 
   var ideaForm = document.forms['idea-form'];
+  var loader = document.getElementById('loader');
+
+  loader.style.display = 'none';
 
   ideaForm.onsubmit = function(evt) {
     evt.preventDefault();
     // ideaForm.reset();
 
     var keywords = document.getElementById('idea-sentence').value;
-
     var url = '/api/point1/' + '?keywords=' + keywords;    
+    
     makeCall(url);
   }
 
@@ -89,12 +103,18 @@
     
     req.onreadystatechange = function() {
       if (req.readyState === 4) {
-        if (req.status === 200) {
-          //console.log(req);
-          //console.log(JSON.parse(req.responseText));
+        if (req.status === 200) {  
+
+          setTimeout(function() {
+
+          loader.style.display = 'block';
           var userScore = JSON.parse(req.responseText);
           console.log(userScore);
           results.innerHTML = '<p>Your Score : ' + userScore.totalNumRecords + '</p>'
+
+          }, 2000);
+          
+
         }
       }
     };

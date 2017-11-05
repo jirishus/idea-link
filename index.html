@@ -90,8 +90,11 @@
     req.onreadystatechange = function() {
       if (req.readyState === 4) {
         if (req.status === 200) {
-          console.log(req);
-          console.log(JSON.parse(req.responseText));
+          //console.log(req);
+          //console.log(JSON.parse(req.responseText));
+          var userScore = JSON.parse(req.responseText);
+          console.log(userScore);
+          results.innerHTML = '<p>Your Score : ' + userScore.totalNumRecords + '</p>'
         }
       }
     };

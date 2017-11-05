@@ -110,6 +110,7 @@ form[name="idea-form"] {
   background: #fff;
   margin-top: 2em;
   padding: 1em;
+  text-align: center;
 }
 form[name="idea-form"] legend {
   text-align: center;
@@ -128,7 +129,7 @@ form[name="idea-form"] label {
 }
 
 .loader {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
   position: absolute;
   height: 100%;
   width: 100%;

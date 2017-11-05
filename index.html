@@ -41,17 +41,17 @@
       <form name="idea-form">
       <legend><h1>Tell Us About Your Business Idea</h1></legend>
         <div class="row">
-          <div class="col-md-6 question-field">
+          <div class="col-md-6 col-md-offset-3 question-field">
             <label for="idea-sentence">1. Describe your business idea in a sentence</label>
             <input id="idea-sentence" type="text" class="form-control" placeholder="e.g. An app to connect musicians" required>
           </div>
-          <div class="col-md-6 question-field">
+          <!-- <div class="col-md-6 question-field">
             <label for="idea-type">2. What type of business is this?</label>
             <input type="text" class="form-control" id="idea-type" placeholder="e.g. service, social-network, business-2-business">
-          </div>
+          </div> -->
          </div>
 
-         <div class="row">
+         <!-- <div class="row">
           <div class="col-md-6 question-field">
             <label>3. Which industry? </label>
             <select class="custom-select d-block my-3 form-control">
@@ -62,7 +62,7 @@
             </select>
           </div>
           
-         </div>
+         </div> -->
 
          <button class="btn btn-primary" type="submit">Submit Form</button>
       
@@ -84,7 +84,9 @@
 
   var ideaForm = document.forms['idea-form'];
   var loader = document.getElementById('loader');
+  var results = document.getElementById('results');
 
+  results.style.display = 'none';
   loader.style.display = 'none';
 
   ideaForm.onsubmit = function(evt) {
@@ -100,20 +102,18 @@
   function makeCall(url) {
 
     loader.style.display = 'block';
-
-    var results = document.getElementById('results');
+    
     var req = new XMLHttpRequest();
     
     req.onreadystatechange = function() {
       if (req.readyState === 4) {
         if (req.status === 200) {  
 
-
-
           setTimeout(function() {
           loader.style.display = 'none';
           var userScore = JSON.parse(req.responseText);
           console.log(userScore);
+          results.style.display = 'block';
           results.innerHTML = '<p>Your Score : ' + userScore.totalNumRecords + '</p>'
 
           }, 2000);

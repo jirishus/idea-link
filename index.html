@@ -64,7 +64,7 @@
           
          </div> -->
 
-         <button class="btn btn-primary" type="submit">Submit Form</button>
+         <button class="btn btn-primary" type="submit">Generate Results</button>
       
       </form>
     </div>
@@ -121,7 +121,8 @@
           callback(userScore);
               
           results.style.display = 'block';
-          results.innerHTML = '<p>Your Score : ' + userScore.totalNumRecords + '</p>' + '<br />' + scores.join('');
+          results.innerHTML = '<p>Current Score : ' + userScore.totalNumRecords + '</p>' + '<br />' 
+            + '<p>Previous Scores </p>' + '<br />' + scores.join('');
           
           }, 0);
           
